@@ -148,10 +148,10 @@ class DeQueue
 				delatend();
 				delatfront();
 				//System.out.println("Okay!");
-				flag=1;
+				flag++;
 			}
 		}
-			if(flag==1)
+			if(flag==mid)
 			{
 				System.out.println("Pallindrome");
 			}
