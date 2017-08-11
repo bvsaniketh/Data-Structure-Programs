@@ -32,7 +32,7 @@ class Node
 	{
 		return link;
 	}
-	Node GetData()
+	char GetData()
 	{
 		return data;
 	}
@@ -125,13 +125,39 @@ class DeQueue
 		if(count==0)
 		{
 			System.out.println("Empty Queue");
+				return ;
 		}
 		Node temp=front;
 		while(temp!=rear.GetLink())
-		{
+		{	
 			System.out.print(temp.GetData()+"->");
 			temp=temp.GetLink();
 		}
+		System.out.println();
+
+	}
+
+	void checkpallindrome()
+	{
+		int mid=count/2;
+		int flag=0;
+		for(int i=0;i<mid;i++)
+		{
+			if(rear.GetData()==front.GetData())
+			{
+				delatend();
+				delatfront();
+				//System.out.println("Okay!");
+				flag=1;
+			}
+		}
+			if(flag==1)
+			{
+				System.out.println("Pallindrome");
+			}
+			else
+				System.out.println("Not a Pallindrome");
+		
 	}
 }
 class Deq
@@ -139,11 +165,26 @@ class Deq
 	public static void main(String args[])
 	{
 		DeQueue d1=new DeQueue();
-		d1.insertatfront('a');
-		d1.insertatfront('b');
-		d1.insertatfront('c');
-		d1.insertatrear('d');
-		d1.insertatrear('f');
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter the string");
+		String s1=sc.next();
+		int n=s1.length();
+		char c[]=s1.toCharArray();
+
+		for(int i=0;i<n;i++)
+		{	
+			d1.insertatrear(c[i]);
+
+		}
+		System.out.println("The count of total characters is " + d1.count);
+		// d1.insertatfront('a');
+		// d1.insertatfront('b');
+		// d1.insertatfront('c');
+		// d1.insertatrear('d');
+		// d1.insertatrear('f');
+		d1.display();
+		d1.checkpallindrome();
+		d1.display();
 
 	}
 }
