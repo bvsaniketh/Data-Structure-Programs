@@ -1,54 +1,140 @@
 import java.util.*;
-import java.io.*;
-import java.lang.*;
 
-class Prime2D
+
+class Array1
 {
 	public static void main(String args[])
 	{
-		findPrime();
+	Prime1 p=new Prime1();
+	Scanner sc=new Scanner(System.in);	
+	
+	p.prime();
+	p.print();	
+		
 	}
+}
 
-	static void findPrime()
+
+
+
+class Prime1
 	{
-		int arr[]=new int[1000];
-		int num=0;
-		int flag;
-		for(int i=2;i<1000;i++)
-		{	
-			flag=0;
+	
+	int[][] brr=new int[100][100];
+	int[] arr=new int[1000];
+	int k=0,l=0,m=0,i,dd;
+	
+	void prime()
+	{
+			
+		for(i=1;i<1000;i++)
+		{
+			int d=0;
+
+			if(i==0 || i==1)
+			{
+				d=1;
+			}
+			
 			for(int j=2;j<i;j++)
 			{
-				if(i%j==0)
+				if(i%j==0 || i==0 || i==1)
 				{
-					flag=1;
-					break;
+					d=1;
+					break;			
 				}
 			}
-			if(flag==0)
+			
+			if(d==0)
 			{
-				arr[num]=i;
-				//System.out.println(arr[num]);
-				num++;
-
-				//count++;
+				arr[m]=i;
+				m++;
+				
+			}
+			
+			
+		int z=0;
+		for(l=0;l<10;l++)
+		{
+			
+				
+			for(k=0;k<25;k++)
+			{
+				if(arr[z]==check(200,300) || arr[z]==check(300,400) || arr[z]==check(400,500) || arr[z]==check(500,600) || 		arr[z]==check(600,700) || arr[z]==check(700,800) || arr[z]==check(800,900) || arr[z]==check(900,1000) )
+				
+				{
+					k=0;l++;
+				}
+			
+				brr[k][l]=arr[z];
+				z++;
+				
+			
 			}
 		}
-		print2D(arr,num);
-	}
 
-	static void print2D(int arr[],int num)
+			
+		
+		
+		}
+		
+		
+		
+	}
+	int check(int a,int b)
 	{
-		int a[][]=new int[100][10];
-		for(int i=0;i<100;i++)
+		for(int i=a;i<b;i++)
 		{
-			for(int j=0;j<10;j++)
-			{	
-				a[i][j]=arr[i];
-				System.out.print(a[i][j] + " ");
+			int d=0;
+			if(i==0 || i==1)
+			{
+				d=1;
+			}
+			
+			for(int j=2;j<i;j++)
+			{
+				if(i%j==0 || i==0 || i==1)
+				{
+					d=1;
+					break;			
+				}
+			}
+			
+			if(d==0)
+			{
+			
+				dd=i;
+				break;
+				
+			}
+		
+		}
+		return dd;
+	}
+	
+	
+	void print()
+	{
+		int z=0;
+		for(k=0;k<25;k++)
+		
+		{
+			
+				
+			for(l=0;l<10;l++)
+			{
+			
+				if(brr[k][l]==0)
+				{
+				break;
+				}
+				System.out.print("   "+brr[k][l]);
+			
 			}
 			System.out.println();
-			// System.out.print(i+ "-" + " " +(i*100) + "\t");
 		}
 	}
 }
+
+
+
